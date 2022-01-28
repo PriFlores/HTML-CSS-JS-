@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>WebDev CA2</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/codemirror.js"></script>
+        <script>
+            function reply_click(clicked_object)
+                {
+                    var sql = clicked_object.getAttribute('data-sql');
+                    console.log(sql);
+                    editor.setValue(sql);
+                }
+        </script>
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <img src="images/img2.jpg" alt="image"height="300" width ="900">
+        <div style="background-image:url('images/img4.jpg');">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Database</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="./part1.1.html">Reset Page</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="./part1.1.html">HTML part 1</a></li>
+                                <li><a class="dropdown-item" href="./part2.2.html">HTML part 2</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="./part3.3.html">HTML part 3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Page content-->
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Employees Database</h1>
+                <div class="bg-white">
+                    <strong> Each button below will bring you to see a specific part of the Employees Database.</strong>
+                    <strong>Click on the desired button, then choose the database file and by clicking on execute button you will be able to access de data. </strong>
+    
+                </div>
+            </div>
+             <div class="col-lg-2 order-1 mb-3 d-flex flex-column gap-2 mx-auto align-items-stretch">
+<button name= "See all Queries" class="btn btn-secondary bg-success btn-block" data-sql=
+"SELECT * FROM employees LIMIT 10; 
+SELECT COUNT (*) AS totalEmployees FROM employees LIMIT 10;
+SELECT emp_id, first_name, lat_name, hire_date FROM employees WHERE gender = F ORDER BY emp_id LIMIT 10;
+SELECT emp_id, first_name, last_name, hire_date FROM employees WHERE  last_name = 'Simmel' AND hire_date > 1986-01-01 LIMIT 10;
+SELECT COUNT (*) AS totalwithB FROM employess WHERE last_name LIKE 'B%' LIMIT 10;
+CREATE TABLE IF NOT EXISTS emp_training (trainer_no INTEGER NOT NULL,
+                first_name VARCHAR (30) NOT null,
+                last_name VARCHAR (30) NOT null, 
+                t_module VARCHAR (20) NOT null,
+                PRIMARY KEY (trainer_no)) LIMIT 10;
+                INSERT INTO emp_training (first_name, last_name, t_module)
+                VALUES 
+                ('Joe', 'Bloggs', 'Google Docs') LIMIT 10;
+                SELECT ALL * FROM emp_training LIMIT 10;
+                DROP TABLE emp_training LIMIT 10;
+                ALTER TABLE employees ADD email_address VARCHAR (20) LIMIT 10;
+                UPDATE employees SET email_address 'gfacello@gmail.com' WHERE emp_id '10001' LIMIT 10;"
+                onClick="reply_click(this)"> See all the queries </button>
+
+ </button>
+                <button name="2.1" class="btn btn-secondary bg-success btn-block" data-sql="SELECT * FROM employees LIMIT 10;" onClick="reply_click(this)">2.1 SELECT * FROM employees</button>
+                <button name="2.2" class="btn btn-secondary bg-success btn-block" data-sqp ="SELECT COUNT (*) AS totalEmployees FROM employees LIMIT 10;" onClick="reply_click(this)">2.2 SELECT COUNT (*) AS totalEmployees FROM employees </button>
+                <button name="2.3" class="btn btn-secondary bg-success btn-block" data-sql="SELECT emp_id, first_name, last_name, hire_date FROM employees WHERE gender = 'F' ORDER BY emp_id LIMIT 10;" onClick="reply_click(this)">2.3 SELECT emp_id, first_name, lat_name, hire_date FROM employees WHERE gender = F ORDER BY emp_id</button>
+                <button name="2.4" class="btn btn-secondary bg-success btn-block" data-sql="SELECT emp_id, first_name, last_name, hire_date FROM employees WHERE  last_name = 'Simmel' AND hire_date > 1986-01-01 LIMIT 10;" onClick="reply_click(this)">2.4 SELECT emp_id, first_name, last_name, hire_date FROM employees WHERE  last_name = 'Simmel' AND hire_date > 1986-01-01</button>
+                <button name="2.5" class="btn btn-secondary bg-success btn-block" data-sql="SELECT COUNT (*) AS totalwithB FROM employees WHERE last_name LIKE 'B%' LIMIT 10;" onClick="reply_click(this)">2.5 SELECT COUNT (*) AS totalwithB FROM employees WHERE last_name LIKE 'B%' </button>
+                <button name="2.6" class="btn btn-secondary bg-success btn-block" data-sql="CREATE TABLE IF NOT EXISTS emp_training (trainer_no INTEGER NOT NULL,first_name VARCHAR (30) NOT null, last_name VARCHAR (30) NOT null, t_module VARCHAR (20) NOT null, PRIMARY KEY (trainer_no));" onClick="reply_click(this)">2.6 CREATE TABLE IF NOT EXISTS emp_training (trainer_no INTEGER NOT NULL,
+                first_name VARCHAR (30) NOT null,
+                last_name VARCHAR (30) NOT null, 
+                t_module VARCHAR (20) NOT null,
+                PRIMARY KEY (trainer_no));"</button>
+                <button name="2.7" class="btn btn-secondary bg-success btn-block" data-sql="INSERT INTO emp_training (first_name, last_name, t_module)
+                VALUES 
+                ('Joe', 'Bloggs', 'Google Docs') ;" onClick="reply_click(this)">2.7 INSERT INTO emp_training (first_name, last_name, t_module)
+                VALUES 
+                ('Joe', 'Bloggs', 'Google Docs') </button>
+                <button name="2.8" class="btn btn-secondary bg-success btn-block" data-sql="SELECT ALL * FROM emp_training LIMIT 10;" onClick="reply_click(this)">2.8 SELECT ALL * FROM emp_training</button>
+                <button name="2.9" class="btn btn-secondary bg-success btn-block" data-sql="DROP TABLE emp_training ;" onClick="reply_click(this)">2.9 "DROP TABLE emp_training</button>
+                <button name="2.10" class="btn btn-secondary bg-success btn-block" data-sql="ALTER TABLE employees ADD email_address VARCHAR (20);" onClick="reply_click(this)">2.10 ALTER TABLE employees ADD email_address VARCHAR (20)</button>
+                <button name="2.11" class="btn btn-secondary bg-success btn-block" data-sql="UPDATE employees SET email_address 'gfacello@gmail.com' WHERE emp_id; onClick="reply_click(this)">2.11UPDATE employees SET email_address 'gfacello@gmail.com' WHERE emp_id '10001' </button>
+            </div>
+            <div class="col-lg-10 order-2">
+                <textarea id="commands" class="col-lg-8 order-2 mb-5">
+SELECT * FROM employees LIMIT 10; 
+SELECT COUNT (*) AS totalEmployees FROM employees LIMIT 10;
+SELECT emp_id, first_name, lat_name, hire_date FROM employees WHERE gender = F ORDER BY emp_id LIMIT 10;
+SELECT emp_id, first_name, last_name, hire_date FROM employees WHERE  last_name = 'Simel' AND hire_date > 1986-01-01 LIMIT 10;
+SELECT COUNT (*) AS totalwithB FROM employess WHERE last_name LIKE 'B%' LIMIT 10;
+CREATE TABLE emp_training (trainer_no INTEGER NOT NULL,first_name VARCHAR (30) NOT null,last_name VARCHAR (30) NOT null, t_module VARCHAR (20) NOT null,PRIMARY KEY (trainer_no)) LIMIT 10;
+INSERT INTO emp_training (first_name, last_name, t_module) VALUES ('Joe', 'Bloggs', 'Google Docs') LIMIT 10;
+SELECT ALL * FROM emp_training LIMIT 10;
+DROP TABLE emp_training LIMIT 10;
+ALTER TABLE employees ADD email_address VARCHAR (20) LIMIT 10;
+UPDATE employees SET email_address 'gfacello@gmail.com' WHERE emp_id '10001' LIMIT 10;
+             </textarea>
+   
+                <button class="btn btn-primary bg-success" type="button" id="execute">Execute</button>
+                    <label class="button">Load an SQLite database file: <input type='file' id='dbfile'></label>
+                
+                
+                
+                <!----<button class="btn btn-primary bg-success" type="button" id="execute">Execute</button>
+                    <input type="file" class="form-control" id="employees.db" />---->
+                    
+                    <!-- <input type='file' id=''/> -->
+                    <!--path of DB C:\Users\new\Desktop\CA2 web dev\dbconnectionexample\test_db-master\employees.sql-->
+                
+                    <div id="error" class="error"></div>
+                
+                    <pre id="output" class="bg-white">Results will be displayed here</pre>
+               </div>
+            </div>
+        </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.1/mode/sql/sql.min.js"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="js/sql.js"></script>
+        <script type="text/javascript" src="js/gui.js"></script>
+    </body>
+</html>
